@@ -69,7 +69,7 @@ public class FlexibleArray<T> implements Iterable<T> {
         }
 
         public boolean hasNext() {
-            return data[i] != null;
+            return data.length > i && data[i] != null;
         }
 
         public void remove() {

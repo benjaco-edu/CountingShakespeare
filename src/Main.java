@@ -21,8 +21,37 @@ public class Main {
 
     }
 
+    private static int indexOf(Iterable<WordCount> arr, String word) {
+        int index = 0;
+
+        for (WordCount i : arr) {
+            if (i.word.equals(word)) {
+                return index;
+            }
+            index++;
+        }
+
+        return -1;
+    }
+
     private void countUsingFlexibleArray() {
         FlexibleArray<WordCount> flexArray =new FlexibleArray<WordCount>(32);
+
+        for (String word : originalList) {
+            int indexOfWord = indexOf(flexArray, word);
+            if (indexOfWord == -1) {
+                flexArray.add(new WordCount(word, 1));
+            } else {
+                WordCount el = flexArray.get(indexOfWord);
+                el.count++;
+                flexArray.set(indexOfWord, el);
+            }
+        }
+
+        for (WordCount wc : flexArray) {
+            System.out.print(wc.count +"X "+wc.word+", ");
+        }
+        System.out.println("");
 
     }
 
