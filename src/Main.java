@@ -21,30 +21,26 @@ public class Main {
 
     }
 
-    private static int indexOf(Iterable<WordCount> arr, String word) {
-        int index = 0;
+    private static WordCount find(Iterable<WordCount> arr, String word) {
 
         for (WordCount i : arr) {
             if (i.word.equals(word)) {
-                return index;
+                return i;
             }
-            index++;
         }
+        return null;
 
-        return -1;
     }
 
     private void countUsingFlexibleArray() {
         FlexibleArray<WordCount> flexArray =new FlexibleArray<WordCount>(32);
 
         for (String word : originalList) {
-            int indexOfWord = indexOf(flexArray, word);
-            if (indexOfWord == -1) {
+            WordCount wordCountForWord = find(flexArray, word);
+            if (wordCountForWord !=  null) {
+                wordCountForWord.count++;
+            }else {
                 flexArray.add(new WordCount(word, 1));
-            } else {
-                WordCount el = flexArray.get(indexOfWord);
-                el.count++;
-                flexArray.set(indexOfWord, el);
             }
         }
 
