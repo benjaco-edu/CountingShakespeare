@@ -12,7 +12,8 @@ public class Main {
         List<String> originalList = Helpers.fileToWordArray("./src/Shaky.txt");
 
 
-        countUsingFlexibleArray(originalList);
+        //countUsingFlexibleArray(originalList);
+        countUsingLinkedList(originalList);
 
 
     }
@@ -25,6 +26,25 @@ public class Main {
             }
         }
         return null;
+
+    }
+
+    private static void countUsingLinkedList(List<String> originalList) {
+        LinkedSymbolTable<WordCount> linkedList = new LinkedSymbolTable<>();
+
+        for (String word : originalList) {
+            WordCount wordCountForWord = find(linkedList, word);
+            if (wordCountForWord !=  null) {
+                wordCountForWord.count++;
+            }else {
+                linkedList.add(new WordCount(word, 1));
+            }
+        }
+
+        for (WordCount wc : linkedList) {
+            System.out.print(wc.count +"X "+wc.word+", ");
+        }
+        System.out.println("");
 
     }
 

@@ -5,6 +5,7 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 
 public class FlexibleArray<T> implements Iterable<T> {
+
     public T[] data;
     private int index = -1;
 

@@ -20,7 +20,7 @@ public class Helpers {
 
         while (s.hasNext()){
             String word = s.next().toLowerCase().replaceAll("[^a-z]","");
-            if(word.isBlank()){
+            if(word.isEmpty()){
                 continue;
             }
             originalList.add(word);

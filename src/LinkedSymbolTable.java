@@ -1,58 +1,52 @@
-class LinkedSymbolTable<K,V> {
+import java.util.Iterator;
 
-    //What is a Node?: https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/Node.html
-    // http://www.cs.williams.edu/JavaStructures/doc/structure5/structure5/Node.html
-    // A class supporting a singly linked list element. Each element contains a value and maintains a single reference to the next node in the list.
+class LinkedSymbolTable<V> implements Iterable<V> {
 
     private Node first;
+    private Node last;
 
     private class Node {
-
-        K word;
         V val;
         Node next;
 
-        Node(K key, V val, Node next) {
-            this.word = key;
+        Node(V val, Node next) {
             this.val = val;
             this.next = next;
         }
+    }
+
+    public void add(V value) {
+        if (last == null) {
+            first = last = new Node(value, null);
+        } else {
+            Node newNode = new Node(value, null);
+            last.next = newNode;
+            last = newNode;
+        }
+    }
+
+    @Override
+    public Iterator<V> iterator() {
+        return new ArrayIterator();
+    }
+
+    private class ArrayIterator implements Iterator<V> {
+        private Node currentNode;
+
+        public ArrayIterator() {
+            this.currentNode = first;
+        }
 
         @Override
-        public String toString() {
-            return word + " - " + val;
+        public boolean hasNext() {
+            return currentNode != null;
         }
 
-    }
-
-    public void put(K word, V val) {
-        for (Node x = first; x != null; x = x.next)
-        {
-            if (word.equals(x.word))
-            {
-                x.val = val;
-                return;
-            }
-        }
-        first = new Node(word, val, first);
-    }
-
-    public V get(K word) {
-        for (Node x = first; x != null; x = x.next) {
-            if (word.equals(x.word)) {
-                return x.val;
-            }
-        }
-        return null;
-    }
-
-    public boolean contains(K word){
-        return get(word) != null;
-    }
-
-    public void print(){
-        for(Node x = first; x != null; x = x.next){
-            System.out.println(x.toString());
+        @Override
+        public V next() {
+            Node returnedNode = currentNode;
+            currentNode = currentNode.next;
+            return returnedNode.val;
         }
     }
 }
