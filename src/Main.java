@@ -12,8 +12,28 @@ public class Main {
         List<String> originalList = Helpers.fileToWordArray("./src/Shaky.txt");
 
 
-        //countUsingFlexibleArray(originalList);
+        countUsingFlexibleArray(originalList);
         countUsingLinkedList(originalList);
+        countUsingRedBlackBST(originalList);
+
+    }
+
+    private static void countUsingRedBlackBST(List<String> originalList) {
+        RedBlackBST<String, Integer> bst = new RedBlackBST<>();
+
+        for (String word : originalList) {
+            Integer timesFound = bst.get(word);
+            if (timesFound == null) {
+                bst.insert(word, 1);
+            } else {
+                bst.insert(word, timesFound+1);
+            }
+        }
+
+
+        bst.printInorder();
+
+        System.out.println("");
 
 
     }
