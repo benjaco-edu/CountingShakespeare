@@ -7,7 +7,7 @@ https://github.com/datsoftlyngby/soft2019spring-algorithms/blob/master/Weeklies/
 
 The objective is to basically take the .txt-file containing all of Shakespeares works and count the times a word is used.
 
-This operation has to be achived by building and using 4 types of Search algorithms, using Symbol Tables, in which the *words* are to be the *keys*, and the *number of occurrences* (of the word) should be the *values*.
+This operation has to be achieved by building and using 4 types of Search algorithms, using Symbol Tables, in which the *words* are to be the *keys*, and the *number of occurrences* (of the word) should be the *values*.
 
 The 4 algorithms are:
 
@@ -16,9 +16,9 @@ The 4 algorithms are:
 - Hashed
 - BalancedTree (We went with the RedBlack-tree)
 
-## Setup
+## Setup for Results
 
-Just for a bit of clarification of the machine that was going to handle counting this assignment:
+Just for a bit of clarification of the machine that was going to handle counting and searching this assignment:
 
 *   **CPU**: *Intel i7-6700k / 4 Cores at 4.0GHz / 8 Threads*
 *   **Ram**: *16GB DDR4 2666Mhz*
