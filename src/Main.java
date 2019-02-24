@@ -10,25 +10,29 @@ public class Main {
         List<String> originalList = Helpers.fileToWordArray("./src/Shaky.txt");
 
 
-        countUsingFlexibleArray(originalList);
-        countUsingLinkedList(originalList);
-        countUsingHashMap(originalList);
-        countUsingRedBlackBST(originalList);
-
-
+        System.out.println("NanoTime using FlexibleArray: " + Helpers.timeExecution(() -> countUsingFlexibleArray(originalList)));
+        System.out.println("----");
+        System.out.println("NanoTime using LinkedList: " + Helpers.timeExecution(() -> countUsingLinkedList(originalList)));
+        System.out.println("----");
+        System.out.println("NanoTime using HashMap: " + Helpers.timeExecution(() -> countUsingHashMap(originalList)));
+        System.out.println("----");
+        System.out.println("NanoTime using RedBlackBST: " + Helpers.timeExecution(() -> countUsingRedBlackBST(originalList)));
+        System.out.println("----");
     }
 
     private static void countUsingHashMap(List<String> originalList) {
-        HashFunction hashFunc = new HashFunction(originalList);
-        hashFunc.insertion();
+        HashFunction hashFunc = new HashFunction(originalList.size());
 
-        WordCount[] myArray = hashFunc.getArray();
-        System.out.println(myArray[58].getWord());
-        for (WordCount wc : myArray) {
-            if (wc != null) {
-                System.out.print(wc.getCount() + "X " + wc.getWord() + ", ");
-            }
+        for (String word : originalList) {
+            hashFunc.insert(word);
         }
+
+        WordCount[] array = hashFunc.getArray();
+        for (WordCount wc : array) {
+            System.out.print(wc.getCount() + "X " + wc.getWord() + ", ");
+        }
+        System.out.println("");
+
     }
 
     private static void countUsingRedBlackBST(List<String> originalList) {
@@ -42,24 +46,18 @@ public class Main {
                 bst.insert(word, timesFound + 1);
             }
         }
-
-
         bst.printInorder();
 
         System.out.println("");
-
-
     }
 
     private static WordCount find(Iterable<WordCount> arr, String word) {
-
         for (WordCount i : arr) {
             if (i.word.equals(word)) {
                 return i;
             }
         }
         return null;
-
     }
 
     private static void countUsingLinkedList(List<String> originalList) {
@@ -78,7 +76,6 @@ public class Main {
             System.out.print(wc.count + "X " + wc.word + ", ");
         }
         System.out.println("");
-
     }
 
     private static void countUsingFlexibleArray(List<String> originalList) {
@@ -97,7 +94,6 @@ public class Main {
             System.out.print(wc.count + "X " + wc.word + ", ");
         }
         System.out.println("");
-
     }
 
 }
