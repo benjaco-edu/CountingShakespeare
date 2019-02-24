@@ -4,7 +4,7 @@ public class RedBlackBST<Key extends Comparable, Val> {
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
-    class KeyValue{
+    class KeyValue {
         Key key;
         Val val;
 
@@ -96,12 +96,11 @@ public class RedBlackBST<Key extends Comparable, Val> {
     }
 
 
-
-    public void printInorder(){
+    public void printInorder() {
         printInorder(root);
     }
-    private void printInorder(Node node)
-    {
+
+    private void printInorder(Node node) {
         if (node == null)
             return;
 
@@ -109,7 +108,7 @@ public class RedBlackBST<Key extends Comparable, Val> {
         printInorder(node.left);
 
         /* then print the data of node */
-        System.out.print("X"+node.val+ " " + node.key+ ", ");
+        System.out.print("X" + node.val + " " + node.key + ", ");
 
         /* now recur on right child */
         printInorder(node.right);

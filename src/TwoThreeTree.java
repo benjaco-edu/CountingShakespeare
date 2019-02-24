@@ -1,10 +1,10 @@
 // not working
 // not used
 
-public class TwoThreeTree <V extends Comparable> {
+public class TwoThreeTree<V extends Comparable> {
     Node root;
 
-    class Node{
+    class Node {
         V leftValue;
         V rightValue;
         Node leftNode;

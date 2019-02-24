@@ -1,8 +1,5 @@
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class FlexibleArray<T> implements Iterable<T> {
 
@@ -10,7 +7,7 @@ public class FlexibleArray<T> implements Iterable<T> {
     private int index = -1;
 
     public FlexibleArray(int i) {
-        data = (T[])new Object[i];
+        data = (T[]) new Object[i];
     }
 
     public T get(int getIndex) {
@@ -30,10 +27,9 @@ public class FlexibleArray<T> implements Iterable<T> {
         data[atIndex] = item;
     }
 
-    public int lenght(){
+    public int lenght() {
         return index + 1;
     }
-
 
 
     public void add(T i) {

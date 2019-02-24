@@ -18,9 +18,9 @@ public class Helpers {
 
         Scanner s = new Scanner(new File(fileName));
 
-        while (s.hasNext()){
-            String word = s.next().toLowerCase().replaceAll("[^a-z]","");
-            if(word.isEmpty()){
+        while (s.hasNext()) {
+            String word = s.next().toLowerCase().replaceAll("[^a-z]", "");
+            if (word.isEmpty()) {
                 continue;
             }
             originalList.add(word);
@@ -33,21 +33,19 @@ public class Helpers {
     }
 
 
-
-
-    public void printArray(String[] strArray){
-        for(int i = 0; i<20;i++){
+    public void printArray(String[] strArray) {
+        for (int i = 0; i < 20; i++) {
             System.out.print(strArray[i] + " ");
         }
         System.out.println("");
     }
 
 
-    public static double timeExecution(Runnable func){
+    public static double timeExecution(Runnable func) {
         long startTime = System.nanoTime();
         func.run();
         long endTime = System.nanoTime();
 
-        return (double)(endTime - startTime) / 1000000;
+        return (double) (endTime - startTime) / 1000000;
     }
 }
