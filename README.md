@@ -15,8 +15,16 @@ Just for a bit of clarification of the machine that was going to handle counting
 *   **OS**: *Windows 10 Pro, running on a 512GB SSD*
 
 ## Results
+![results](./images.jpg)
 
 - FlexibleArray: 14.665 Seconds
 - LinkedList: 42.232 Seconds
 - HashMap: 0.15 Seconds
 - RedBlackBST 0.452 Seconds
+
+Ranked on order from Fastest-to-Slowest:
+
+1. HashMap: 0.15 Seconds
+2. RedBlackBST 0.452 Seconds
+3. FlexibleArray: 14.665 Seconds
+4. LinkedList: 42.232 Seconds
