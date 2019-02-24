@@ -44,14 +44,14 @@ The method for displaying the result in *nanotime* still exist, so you can switc
 
 The current setup of the program has been set to run the complete Shakespeare.txt-file, so you can run the program and compare your own results.
 
-- FlexibleArray: 14.665 Seconds
-- LinkedList: 42.232 Seconds
-- HashMap: 0.15 Seconds
-- RedBlackBST 0.452 Seconds
+- **FlexibleArray:** *14.665 Seconds*
+- **LinkedList:** *42.232 Seconds*
+- **HashMap:** *0.15 Seconds*
+- **RedBlackBST:** *0.452 Seconds*
 
-Ranked on order from Fastest-to-Slowest:
+Ranked on order from *Fastest*-to-*Slowest*:
 
-1. HashMap: 0.15 Seconds
-2. RedBlackBST 0.452 Seconds
-3. FlexibleArray: 14.665 Seconds
-4. LinkedList: 42.232 Seconds
+1. **HashMap:** *0.15 Seconds*
+2. **RedBlackBST:** *0.452 Seconds*
+3. **FlexibleArray:** *14.665 Seconds*
+4. **LinkedList:** *42.232 Seconds*
