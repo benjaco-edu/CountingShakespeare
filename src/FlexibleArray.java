@@ -27,7 +27,7 @@ public class FlexibleArray<T> implements Iterable<T> {
         data[atIndex] = item;
     }
 
-    public int lenght() {
+    public int length() {
         return index + 1;
     }
 

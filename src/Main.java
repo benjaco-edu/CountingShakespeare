@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.util.List;
 
+@SuppressWarnings("Duplicates")
 public class Main {
 
 
@@ -11,8 +12,13 @@ public class Main {
 
         countUsingFlexibleArray(originalList);
         countUsingLinkedList(originalList);
+        countUsingHashMap(originalList);
         countUsingRedBlackBST(originalList);
 
+
+    }
+
+    private static void countUsingHashMap(List<String> originalList) {
         HashFunction hashFunc = new HashFunction(originalList);
         hashFunc.insertion();
 
@@ -23,7 +29,6 @@ public class Main {
                 System.out.print(wc.getCount() + "X " + wc.getWord() + ", ");
             }
         }
-
     }
 
     private static void countUsingRedBlackBST(List<String> originalList) {

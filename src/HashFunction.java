@@ -42,12 +42,13 @@ public class HashFunction {
     }
 
     private int calculateIndex(String word) {
-        int code = word.hashCode();
-        int hash = 0;
-        for (int i = 0; i < word.length(); i++) {
-            hash = (31 * hash + word.charAt(i)) % (arr.length);
-        }
-        return hash;
+        return Math.abs(word.hashCode()) % (arr.length);
+//        int code = word.hashCode();
+//        int hash = 0;
+//        for (int i = 0; i < word.length(); i++) {
+//            hash = (31 * hash + word.charAt(i)) % (arr.length);
+//        }
+//        return hash;
     }
 
     public WordCount[] getArray() {
