@@ -26,12 +26,23 @@ Just for a bit of clarification of the machine that was going to handle counting
 *   **GPU**: *Nvidia 980TI 6GB GDDR5*
 *   **OS**: *Windows 10 Pro, running on a 512GB SSD*
 
+The program was created using Intellij, so you might need to do the following in order to make the program work:
+
+- Mark the "src"-folder as the "source"-folder
+  - Right-click on the *"src"*-folder, select the *"Mark Directory as.."* and finally select the (blue) *"Source Root"*
+- Select Output-folder
+  - Create a new folder within the project named *"out"*
+  - Go to *File* -> *Project Structure...* -> *Project Settings* -> *Project* -> *Project Compiler output* and select your *out*-folder
+  - Hit *Apply*
+
 ## Results
 ![results](./images.jpg)
 
-Unlike the previous assignment ([SortingShakespeare](https://github.com/radeonxray/SortingShakespeare)), running this assignment and getting the results were a lot faster!
+Unlike the previous assignment ([SortingShakespeare](https://github.com/radeonxray/SortingShakespeare)), running this assignment and getting the results were a lot faster! 
+We also reworked our timecalculations from the last assignment, to display the result in *seconds* directly, rather than *nanotime* which created a bit of confusion when trying to convert to seconds. 
+The method for displaying the result in *nanotime* still exist, so you can switch the methods in the *public static void main*-method in the *main.java*-file, should you want to change to time being displayed.
 
-The current setup of the program has been set to run the complete Shakespeare.txt-file, so you can run the progrm and compare your own results.
+The current setup of the program has been set to run the complete Shakespeare.txt-file, so you can run the program and compare your own results.
 
 - FlexibleArray: 14.665 Seconds
 - LinkedList: 42.232 Seconds
