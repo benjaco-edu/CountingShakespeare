@@ -16,6 +16,17 @@ public class Main {
         countUsingLinkedList(originalList);
         countUsingRedBlackBST(originalList);
 
+	HashFunction hashFunc = new HashFunction(originalList);
+        hashFunc.insertion();
+
+        WordCount[] myArray = hashFunc.getArray();
+        System.out.println(myArray[58].getWord());
+        for (WordCount wc : myArray) {
+            if (wc!=null){
+                System.out.print(wc.getCount() +"X "+wc.getWord()+", ");
+            }
+        }
+
     }
 
     private static void countUsingRedBlackBST(List<String> originalList) {
