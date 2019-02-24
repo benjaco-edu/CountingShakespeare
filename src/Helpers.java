@@ -41,11 +41,19 @@ public class Helpers {
     }
 
 
-    public static double timeExecution(Runnable func) {
+    public static double timeExecutionInNanoTime(Runnable func) {
         long startTime = System.nanoTime();
         func.run();
         long endTime = System.nanoTime();
 
         return (double) (endTime - startTime) / 1000000;
+    }
+
+    public static double timeExecutionInSeconds(Runnable func) {
+        long startTime = System.currentTimeMillis();
+        func.run();
+        long endTime = System.currentTimeMillis();
+
+        return (double) (endTime - startTime) / 1000;
     }
 }

@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.List;
 
 @SuppressWarnings("Duplicates")
@@ -7,17 +8,26 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        List<String> originalList = Helpers.fileToWordArray("./src/Shaky.txt");
+        List<String> originalList = Helpers.fileToWordArray("./src/shakespeare-complete.txt");
 
+        System.out.println("Calculating FlexibleArray...");
+        double flexibleTime = Helpers.timeExecutionInSeconds(() -> countUsingFlexibleArray(originalList));
+        System.out.println("----");
+        System.out.println("Calculating LinkedList...");
+        double linkedListTime = Helpers.timeExecutionInSeconds(() -> countUsingLinkedList(originalList));
+        System.out.println("----");
+        System.out.println("Calculating HashMap...");
+        double hashMapTime = Helpers.timeExecutionInSeconds(() -> countUsingHashMap(originalList));
+        System.out.println("----");
+        System.out.println("Calculating RedBlackBST...");
+        double redBlackBSTTime = Helpers.timeExecutionInSeconds(() -> countUsingRedBlackBST(originalList));
+        System.out.println("!--- Final Results ---!");
+        System.out.println("FlexibleArray: " + flexibleTime + " Seconds");
+        System.out.println("LinkedList: " + linkedListTime + " Seconds");
+        System.out.println("HashMap: " + hashMapTime + " Seconds");
+        System.out.println("RedBlackBST " + redBlackBSTTime + " Seconds");
+        System.out.println("--------------------");
 
-        System.out.println("NanoTime using FlexibleArray: " + Helpers.timeExecution(() -> countUsingFlexibleArray(originalList)));
-        System.out.println("----");
-        System.out.println("NanoTime using LinkedList: " + Helpers.timeExecution(() -> countUsingLinkedList(originalList)));
-        System.out.println("----");
-        System.out.println("NanoTime using HashMap: " + Helpers.timeExecution(() -> countUsingHashMap(originalList)));
-        System.out.println("----");
-        System.out.println("NanoTime using RedBlackBST: " + Helpers.timeExecution(() -> countUsingRedBlackBST(originalList)));
-        System.out.println("----");
     }
 
     private static void countUsingHashMap(List<String> originalList) {
